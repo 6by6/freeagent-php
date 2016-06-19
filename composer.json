@@ -2,6 +2,7 @@
     "name": "6by6/freeagent-php",
     "description": "A wrapper for the freeagent API",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniel Ness",
