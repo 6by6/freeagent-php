@@ -9,7 +9,7 @@ class UserTest extends AbstractEntityTest
 {
     public function getApiMethodName()
     {
-        return 'users';
+        return 'user';
     }
 
     public function getClassName()

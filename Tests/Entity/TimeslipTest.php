@@ -47,6 +47,6 @@ class TimeslipTest extends AbstractEntityTest
 
     public function getApiMethodName()
     {
-        return 'timeslips';
+        return 'timeslip';
     }
 }
