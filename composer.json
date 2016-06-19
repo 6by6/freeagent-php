@@ -1,0 +1,24 @@
+{
+    "name": "6by6/freeagent-php",
+    "description": "A wrapper for the freeagent API",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Daniel Ness",
+            "email": "daniel@sixbysix.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "league/oauth2-client": "^1.2",
+        "jms/serializer": "^1.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.1"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "SixBySix\\Freeagent\\" : ""
+        }
+    }
+}
