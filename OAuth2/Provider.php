@@ -151,4 +151,28 @@ class Provider extends AbstractProvider
 
         return $company;
     }
+
+    /**
+     * @param  string $content JSON content from response body
+     * @return array Parsed JSON data
+     * @throws UnexpectedValueException if the content could not be parsed
+     */
+    protected function parseJson($content)
+    {
+        // PHP7 will not parse ""
+        if (!strlen($content)) {
+            return false;
+        }
+
+        $content = json_decode($content, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new UnexpectedValueException(sprintf(
+                "Failed to parse JSON response: %s",
+                json_last_error_msg()
+            ));
+        }
+
+        return $content;
+    }
 }
