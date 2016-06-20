@@ -42,7 +42,7 @@ class EntityCollection implements \Iterator
     /** @var  boolean */
     protected $hasExecuted;
 
-    public function __construct(Api $api, AbstractEntity $entity)
+    public function __construct(Api $api, AbstractEntity $entity, array $entities = null)
     {
         $this->position = 0;
         $this->queryParams = [];
@@ -50,7 +50,13 @@ class EntityCollection implements \Iterator
 
         $this->api = $api;
         $this->entity = $entity;
-        $this->hasExecuted = false;
+
+        if ($entities) {
+            $this->hasExecuted = true;
+            $this->items = $entities;
+        } else {
+            $this->hasExecuted = false;
+        }
     }
 
     public function execute()
