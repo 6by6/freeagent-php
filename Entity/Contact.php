@@ -164,9 +164,9 @@ class Contact extends AbstractEntity
     protected $usesContactInvoiceSequence;
 
     /**
-     * @var bool
+     * @var string
      * @Groups({"update", "post", "get"})
-     * @Type("boolean")
+     * @Type("string")
      */
     protected $chargeSalesTax;
 
