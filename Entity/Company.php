@@ -178,9 +178,9 @@ class Company extends AbstractEntity
     protected $ecVatReportingEnabled;
 
     /**
-     * @var bool
+     * @var \DateTime
      * @Groups({"get"})
-     * @Type("boolean")
+     * @Type("DateTime<'Y-m-d'>")
      */
     protected $salesTaxEffectiveDate;
 
@@ -204,8 +204,9 @@ class Company extends AbstractEntity
 
 
     /**
+     * @var \DateTime
      * @Groups({"get"})
-     * @Type("string")
+     * @Type("DateTime<'Y-m-d'>")
      */
     protected $vatFirstReturnPeriodEndsOn;
 
@@ -553,6 +554,22 @@ class Company extends AbstractEntity
 
         return $items;
     }
+
+    /**
+     * @param array $filters
+     * @return EntityCollection
+     */
+    public function query(array $filters = [])
+    {
+        /** @var Company $company */
+        $company = $this->getApi()->getCompany();
+
+        /** @var EntityCollection $collection */
+        $collection = new EntityCollection($this->getApi(), $this, [$company]);
+        
+        return $collection;
+    }
+
 
     public function getApiResourceName()
     {
