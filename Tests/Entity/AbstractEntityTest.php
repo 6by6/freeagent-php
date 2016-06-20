@@ -44,9 +44,17 @@ abstract class AbstractEntityTest extends TestCase
 
         foreach ($accessors as $methodName => $value) {
             if ($value instanceof \DateTime) {
-                $this->assertEquals($value->getTimestamp(), $entity->$methodName()->getTimestamp(), "{$methodName}()");
+                $this->assertLessThan(
+                    60, // give a buffer for number of seconds dates can differ (Y-m-d dates can't be compared otherwise)
+                    $value->diff($entity->$methodName())->s,
+                    "{$methodName}()"
+                );
             } else {
-                $this->assertEquals($value, $entity->$methodName(), "$value {$methodName}()");
+                $this->assertEquals(
+                    $value,
+                    $entity->$methodName(),
+                    "{$methodName}()"
+                );
             }
         }
     }
