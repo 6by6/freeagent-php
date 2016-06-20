@@ -5,13 +5,17 @@ namespace SixBySix\Freeagent\Tests\Entity;
 use SixBySix\Freeagent\Entity\Company;
 use SixBySix\Freeagent\Tests\TestCase;
 
-class CompanyTest extends TestCase
+class CompanyTest extends AbstractEntityTest
 {
 
-    public function setUp()
+    public function getClassName()
     {
-        parent::setUp();
-        $this->api->connect();
+        return 'SixBySix\Freeagent\Entity\Company';
+    }
+
+    public function getApiMethodName()
+    {
+        return 'company';
     }
 
     /**
@@ -23,26 +27,6 @@ class CompanyTest extends TestCase
         $company = $this->api->getCompany();
 
         $this->assertInstanceOf('SixBySix\Freeagent\Entity\Company', $company);
-    }
-
-    /**
-     * @test
-     * @dataProvider deserializeProvider
-     * @param $json
-     * @param $accessors
-     */
-    public function deserialize($json, $accessors)
-    {
-        /** @var Company $company */
-        $company = $this->api->company();
-
-        $company = $company->deserialize($json, get_class($company));
-
-        $this->assertInstanceOf('SixBySix\Freeagent\Entity\Company', $company);
-
-        foreach ($accessors as $methodName => $value) {
-            $this->assertEquals($value, $company->$methodName());
-        }
     }
 
     public function deserializeProvider()
@@ -83,9 +67,6 @@ class CompanyTest extends TestCase
                     'initial_vat_basis' => 'Cash',
                     'initially_on_frs' => true,
                     'initial_vat_frs_type' => 'Computer and IT consultancy or data processing',
-                    'locked_attributes' => ['currency'],
-                    'created_at' => '2014-05-06T12:27:18.000Z',
-                    'updated_at' => '2016-03-07T08:27:41.000Z',
                 ],
                 [
                     'getUrl' => 'https://api.freeagent.com/v2/company',
@@ -94,9 +75,9 @@ class CompanyTest extends TestCase
                     'getType' => 'UkLimitedCompany',
                     'getCurrency' => 'GBP',
                     'getMileageUnits' => 'miles',
-                    'getCompanyStartDate' => '2014-05-01',
-                    'getFreeagentStartDate' => '2015-05-01',
-                    'getFirstAccountingYearEnd' => '2015-04-30',
+                    'getCompanyStartDate' => \DateTime::createFromFormat('Y-m-d', '2014-05-01'),
+                    'getFreeagentStartDate' => \DateTime::createFromFormat('Y-m-d', '2015-05-01'),
+                    'getFirstAccountingYearEnd' => \DateTime::createFromFormat('Y-m-d', '2015-04-30'),
                     'getCompanyRegistrationNumber' => 'ABC1234',
                     'getSalesTaxRegistrationStatus' => 'Registered',
                     'getAddress1' => '3/4',
@@ -113,19 +94,36 @@ class CompanyTest extends TestCase
                     'getEcVatReportingEnabled' => true,
                     'getSalesTaxName' => 'VAT',
                     'getSalesTaxRegistrationNumber' => 'ABC123 55',
-                    'getSalesTaxEffectiveDate' => '2014-05-01',
+                    'getSalesTaxEffectiveDate' => \DateTime::createFromFormat('Y-m-d', '2014-05-01'),
                     'getSalesTaxRates' => [20.0, 5.0, 0],
                     'getSalesTaxIsValueAdded' => true,
                     'getSupportsAutoSalesTaxOnPurchases' => true,
-                    'getVatFirstReturnPeriodEndsOn' => '2014-09-01',
+                    'getVatFirstReturnPeriodEndsOn' => \DateTime::createFromFormat('Y-m-d', '2014-09-01'),
                     'getInitialVatBasis' => 'Cash',
                     'getInitiallyOnFrs' => true,
                     'getInitialVatFrsType' => 'Computer and IT consultancy or data processing',
-                    'getLockedAttributes' => ['currency'],
-                    'getCreatedAt' => \DateTime::createFromFormat('Y-m-d\TH:i:s.000Z', '2014-05-06T12:27:18.000Z'),
-                    'getUpdatedAt' => \DateTime::createFromFormat('Y-m-d\TH:i:s.000Z', '2016-03-07T08:27:41.000Z'),
                 ]
             ]
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function getOne()
+    {
+        /** @var AbstractEntity $first */
+        $first = $this->entity->query()->getFirst();
+
+        if (!$first) {
+            $this->fail(
+                sprintf('No instances of %s found, cannot test', get_class($this->entity))
+            );
+        }
+
+        /** @var AbstractEntity $entity */
+        $entity = $this->entity->getByUrl($first->getUrl());
+
+        $this->assertInstanceOf($this->getClassName(), $entity);
     }
 }
