@@ -121,6 +121,7 @@ class InvoiceTest extends AbstractEntityTest
         /** @var Invoice $invoice */
         $invoice = $this->getCurrentInvoice();
         $invoice->setDatedOn(new \DateTime('+7 days'));
+        $invoice->setSendNewInvoiceEmails(true);
         $invoice->save();
 
         // schedule
