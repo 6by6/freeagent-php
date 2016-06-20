@@ -10,8 +10,6 @@ You can install this library via [Composer](https://getcomposer.org/download/):
 
 ## Compatibility 
 We are currently testing against the following PHP versions:
-* '5.4'
-* '5.5'
 * '5.6'
 * '7.0'
 * hhvm
