@@ -11,6 +11,7 @@ use SixBySix\Freeagent\Entity\BankTransaction;
 use SixBySix\Freeagent\Entity\BankTransactionExplanation;
 use SixBySix\Freeagent\Entity\Bill;
 use SixBySix\Freeagent\Entity\CapitalAsset;
+use SixBySix\Freeagent\Entity\Category;
 use SixBySix\Freeagent\Entity\Company;
 use SixBySix\Freeagent\Entity\Contact;
 use SixBySix\Freeagent\Entity\Estimate;
@@ -265,6 +266,14 @@ class Api
     public function capitalAsset()
     {
         return $this->entityFactory(new CapitalAsset());
+    }
+
+    /**
+     * @return Category
+     */
+    public function category()
+    {
+        return $this->entityFactory(new Category());
     }
 
     /**

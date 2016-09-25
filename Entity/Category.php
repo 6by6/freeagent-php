@@ -114,4 +114,9 @@ class Category extends AbstractEntity
     {
         return self::API_ENTITY_NAME;
     }
+
+    public function getApiEntityCollectionName()
+    {
+        return 'categories';
+    }
 }

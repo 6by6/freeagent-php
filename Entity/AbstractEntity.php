@@ -193,6 +193,11 @@ abstract class AbstractEntity
         return [];
     }
 
+    public function getApiEntityCollectionName()
+    {
+        return sprintf("%ss", $this->getApiEntityName());
+    }
+
     protected function getIdFromUrl($url)
     {
         /** @var integer $id */

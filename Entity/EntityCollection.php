@@ -87,7 +87,7 @@ class EntityCollection implements \Iterator
         }
 
         /** @var string $resultsKey */
-        $resultsKey = sprintf('%ss', $this->entity->getApiEntityName());
+        $resultsKey = $this->entity->getApiEntityCollectionName(); //sprintf('%ss', $this->entity->getApiEntityName());
 
         while (true) {
             // clip last page if it exceeds requested result limit
