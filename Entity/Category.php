@@ -18,42 +18,42 @@ class Category extends AbstractEntity
     /**
      * @var string
      * @Type("string")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $url;
 
     /**
      * @var string
      * @Type("string")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $description;
 
     /**
      * @var string
      * @Type("string")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $nominalCode;
 
     /**
      * @var bool
      * @Type("boolean")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $allowableForTax;
 
     /**
      * @var string
      * @Type("string")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $taxReportingName;
 
     /**
      * @var float
      * @Type("double")
-     * @Group({"get"})
+     * @Groups({"get"})
      */
     protected $autoSalesTaxRate;
 
