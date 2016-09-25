@@ -203,6 +203,11 @@ abstract class AbstractEntity
         return sprintf("%ss", $this->getApiEntityName());
     }
 
+    public function isPaginated()
+    {
+        return true;
+    }
+
     protected function getIdFromUrl($url)
     {
         /** @var integer $id */

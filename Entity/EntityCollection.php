@@ -100,7 +100,6 @@ class EntityCollection implements \Iterator
 
             /** @var mixed[] $response */
             $response = $this->api->GET($url);
-
             $response = $this->entity->parseCollectionResponse($response);
 
             if (!isset($response[$resultsKey])) {
@@ -119,6 +118,10 @@ class EntityCollection implements \Iterator
             }
 
             $numberResults += sizeof($data);
+
+            if (!$this->entity->isPaginated()) {
+                break;
+            }
 
             // end of results reached?
             if (sizeof($data) < $pageSize) {

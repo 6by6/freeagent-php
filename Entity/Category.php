@@ -118,6 +118,11 @@ class Category extends AbstractEntity
         return parent::parseCollectionResponse($response);
     }
 
+    public function isPaginated()
+    {
+        return false;
+    }
+
     public function getApiResourceName()
     {
         return self::API_RESOURCE_NAME;
