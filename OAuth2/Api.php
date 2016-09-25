@@ -14,6 +14,7 @@ use SixBySix\Freeagent\Entity\CapitalAsset;
 use SixBySix\Freeagent\Entity\Company;
 use SixBySix\Freeagent\Entity\Contact;
 use SixBySix\Freeagent\Entity\Estimate;
+use SixBySix\Freeagent\Entity\Expense;
 use SixBySix\Freeagent\Entity\Invoice;
 use SixBySix\Freeagent\Entity\InvoiceTimelineItem;
 use SixBySix\Freeagent\Entity\JournalSet;
@@ -288,6 +289,14 @@ class Api
     public function estimate()
     {
         return $this->entityFactory(new Estimate());
+    }
+
+    /**
+     * @return Expense
+     */
+    public function expense()
+    {
+        return $this->entityFactory(new Expense());
     }
 
     /**
