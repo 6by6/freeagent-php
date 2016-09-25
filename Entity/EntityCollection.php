@@ -101,6 +101,8 @@ class EntityCollection implements \Iterator
             /** @var mixed[] $response */
             $response = $this->api->GET($url);
 
+            $response = $this->entity->parseCollectionResponse($response);
+
             if (!isset($response[$resultsKey])) {
                 throw new Exception("{$resultsKey} could not be found in query result");
             }

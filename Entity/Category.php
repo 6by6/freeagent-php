@@ -113,6 +113,8 @@ class Category extends AbstractEntity
             $collection = array_merge($collection, array_values($values));
         }
 
+        $response = ['categories' => $collection];
+
         return parent::parseCollectionResponse($response);
     }
 
