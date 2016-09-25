@@ -105,6 +105,17 @@ class Category extends AbstractEntity
         return $this->autoSalesTaxRate;
     }
 
+    public function parseCollectionResponse(array $response)
+    {
+        $collection = [];
+
+        foreach ($response as $key => $values) {
+            $collection = array_merge($collection, array_values($values));
+        }
+
+        return parent::parseCollectionResponse($response);
+    }
+
     public function getApiResourceName()
     {
         return self::API_RESOURCE_NAME;

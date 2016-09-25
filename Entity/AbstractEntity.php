@@ -188,6 +188,11 @@ abstract class AbstractEntity
         return $filters;
     }
 
+    public function parseCollectionResponse(array $response)
+    {
+        return $response;
+    }
+
     public function getDefaultQueryParams()
     {
         return [];
