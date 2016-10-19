@@ -72,6 +72,13 @@ class InvoiceItem extends AbstractEntity
      * @Type("double")
      */
     protected $quantity;
+    
+    /**
+     * @var string
+     * @Groups({"post", "update", "get"})
+     * @Type("string")
+     */
+    protected $category;
 
     /**
      * @var bool
@@ -187,6 +194,24 @@ class InvoiceItem extends AbstractEntity
     {
         $this->position = $position;
         return $this;
+    }
+    
+    /**
+     * @param mixed $category
+     * @return $this
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+        return $this;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getCategory)
+    {
+        return $this->category;
     }
 
     /**
