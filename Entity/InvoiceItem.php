@@ -81,6 +81,13 @@ class InvoiceItem extends AbstractEntity
     protected $category;
 
     /**
+     * @var float
+     * @Groups({"post", "update", "get"})
+     * @Type("double")
+     */
+    protected $salesTaxRate;
+
+    /**
      * @var bool
      * @SerializedName("_destroy")
      * @Groups({"update"})
@@ -195,6 +202,14 @@ class InvoiceItem extends AbstractEntity
         $this->position = $position;
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
     
     /**
      * @param mixed $category
@@ -205,13 +220,23 @@ class InvoiceItem extends AbstractEntity
         $this->category = $category;
         return $this;
     }
-    
+
     /**
      * @return mixed
      */
-    public function getCategory)
+    public function getSalesTaxRate()
     {
-        return $this->category;
+        return $this->salesTaxRate;
+    }
+
+    /**
+     * @param mixed $quantity
+     * @return $this
+     */
+    public function setSalesTaxRate($salesTaxRate)
+    {
+        $this->salesTaxRate = $salesTaxRate;
+        return $this;
     }
 
     /**
