@@ -590,6 +590,7 @@ class Api
             'cost_of_sales_categories' => 'SixBySix\Freeagent\Entity\Category',
             'income_categories' => 'SixBySix\Freeagent\Entity\Category',
             'general_categories' => 'SixBySix\Freeagent\Entity\Category',
+            'task' => 'SixBySix\Freeagent\Entity\Task',
         ];
 
         if (!isset($types[$name])) {
