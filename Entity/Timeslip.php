@@ -176,7 +176,7 @@ class Timeslip extends AbstractEntity
             $this->taskEntity = $this->getApi()->getOneResourceByUrl($this->getTaskUrl());
         }
 
-        return $this->userEntity;
+        return $this->taskEntity;
     }
 
     /**
