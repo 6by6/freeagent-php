@@ -26,7 +26,7 @@ class Contact extends AbstractEntity
     const VIEW_SUPPLIERS = 'suppliers';
     const VIEW_ACTIVE_PROJECTS = 'active_projects';
     const VIEW_COMPLETED_PROJECTS = 'completed_projects';
-    const VIEW_OPEN_CLIENTS = 'open_projects';
+    const VIEW_OPEN_CLIENTS = 'open_clients';
     const VIEW_OPEN_SUPPLIERS = 'open_suppliers';
     const VIEW_HIDDEN = 'hidden';
 
