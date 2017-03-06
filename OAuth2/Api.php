@@ -586,6 +586,11 @@ class Api
             'contact' => 'SixBySix\Freeagent\Entity\Contact',
             'project' => 'SixBySix\Freeagent\Entity\Project',
             'user'    => 'SixBySix\Freeagent\Entity\User',
+            'admin_expenses_categories' => 'SixBySix\Freeagent\Entity\Category',
+            'cost_of_sales_categories' => 'SixBySix\Freeagent\Entity\Category',
+            'income_categories' => 'SixBySix\Freeagent\Entity\Category',
+            'general_categories' => 'SixBySix\Freeagent\Entity\Category',
+            'task' => 'SixBySix\Freeagent\Entity\Task',
         ];
 
         if (!isset($types[$name])) {
