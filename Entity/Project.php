@@ -414,8 +414,10 @@ class Project extends AbstractEntity
         return $this->getStatus() == self::STATUS_HIDDEN;
     }
 
-    public function getTimeslips()
+    public function getTimeslips(array $filters = [])
     {
+        $filters = array_merge($filters, ['project' => $this->getUrl()]);
+
         return $this->getApi()->timeslip()->query([
             'project' => $this->getUrl(),
         ]);
