@@ -418,9 +418,7 @@ class Project extends AbstractEntity
     {
         $filters = array_merge($filters, ['project' => $this->getUrl()]);
 
-        return $this->getApi()->timeslip()->query([
-            'project' => $this->getUrl(),
-        ]);
+        return $this->getApi()->timeslip()->query($filters);
     }
 
     public function getEstimates()
