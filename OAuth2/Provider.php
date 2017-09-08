@@ -167,7 +167,7 @@ class Provider extends AbstractProvider
         $content = json_decode($content, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new UnexpectedValueException(sprintf(
+            throw new \UnexpectedValueException(sprintf(
                 "Failed to parse JSON response: %s",
                 json_last_error_msg()
             ));
