@@ -168,6 +168,16 @@ abstract class AbstractEntity
     {
         /** @var mixed[] $response */
         $response = $this->getApi()->GET($url);
+        
+        if (!is_array($response)) {
+
+            if ("$response" == "You must not exceed 120 requests per 60 seconds") {
+                sleep(30);
+                self::getByUrl($url);
+            } else {
+                throw new \Exception("$response");
+            }
+        }        
 
         /** @var mixed[] $entityData */
         $entityData = current($response);
