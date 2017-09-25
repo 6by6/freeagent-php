@@ -173,7 +173,7 @@ abstract class AbstractEntity
 
             if (trim("$response") == "You must not exceed 120 requests per 60 seconds") {
                 sleep(30);
-                self::getByUrl($url);
+                return self::getByUrl($url);
             } else {
                 throw new \Exception("$response");
             }
