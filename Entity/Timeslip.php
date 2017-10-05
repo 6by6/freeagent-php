@@ -238,7 +238,15 @@ class Timeslip extends AbstractEntity
     /**
      * @return mixed
      */
-    public function getBilledOnInvoice()
+    public function setBilledOnInvoiceUrl($billedOnInvoiceUrl)
+    {
+        return $this->billedOnInvoice = $billedOnInvoiceUrl;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBilledOnInvoiceUrl()
     {
         return $this->billedOnInvoice;
     }
