@@ -239,7 +239,7 @@ class Invoice extends AbstractEntity
     /**
      * @var \DateTime
      * @Groups({"get","update","post"})
-     * @Type("DateTime<'Y-m-d\TH:i:sO'>")
+     * @Type("DateTime<'Y-m-d'>")
      */
     protected $writtenOffDate;
 
