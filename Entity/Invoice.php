@@ -85,6 +85,13 @@ class Invoice extends AbstractEntity
     protected $dueOn;
 
     /**
+     * @var \DateTime
+     * @Groups({"get", "update", "post"})
+     * @Type("DateTime<'Y-m-d'>")
+     */
+    protected $paidOn;
+
+    /**
      * @var string
      * @Groups({"get", "update", "post"})
      * @Type("string")
@@ -373,6 +380,24 @@ class Invoice extends AbstractEntity
     public function setDueOn($dueOn)
     {
         $this->dueOn = $dueOn;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPaidOn()
+    {
+        return $this->paidOn;
+    }
+
+    /**
+     * @param \DateTime $paidOn
+     * @return $this
+     */
+    public function setPaidOn($paidOn)
+    {
+        $this->paidOn = $paidOn;
         return $this;
     }
 
