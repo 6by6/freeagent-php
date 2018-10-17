@@ -57,6 +57,13 @@ class Expense extends AbstractEntity
     protected $currency;
 
     /**
+     * @var string
+     * @Groups({"post", "update", "get"})
+     * @Type("string")
+     */
+    protected $receiptReference;
+
+    /**
      * @var float
      * @Groups({"post", "update", "get"})
      * @Type("double");
@@ -322,6 +329,24 @@ class Expense extends AbstractEntity
     public function setCurrency($currency)
     {
         $this->currency = $currency;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getReceiptReference()
+    {
+        return $this->receiptReference;
+    }
+
+    /**
+     * @param string $receiptReference
+     * @return Expense
+     */
+    public function setReceiptReference($receiptReference)
+    {
+        $this->receiptReference = $receiptReference;
         return $this;
     }
 
