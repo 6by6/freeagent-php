@@ -32,7 +32,7 @@ account (obtainable via the [Freeagent API Quickstart Guide](https://dev.freeage
 
 ### Get a list of invoices
 ```
-use SixBySix\Freeagent\OAuth\Api;
+use SixBySix\Freeagent\OAuth2\Api;
 use SixBySix\Freeagent\Entity\EntityCollection;
 use SixBySix\Freeagent\Entity\Invoice;
 
